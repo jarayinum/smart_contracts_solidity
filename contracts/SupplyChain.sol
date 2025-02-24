@@ -37,8 +37,8 @@ contract SupplyChain {
 
     // Constructor - contract deployer is initially authorized
     constructor() {
-        productCount = 0;
-    }
+    productCount = 0;
+}
 
     // Create a new product
     function createProduct(string memory _name) public returns (uint) {

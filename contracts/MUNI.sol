@@ -16,19 +16,17 @@ interface IERC20 {
 contract Muni is IERC20 {
     string public name = "Muni";
     string public symbol = "MUNI";
-    uint8 public decimals = 18; // Standard for ERC-20, same as ETH
+    uint8 public decimals = 18;
     uint256 private _totalSupply;
     
     mapping(address => uint256) private _balances;
     mapping(address => mapping(address => uint256)) private _allowances;
     
-    // Constructor to set initial supply (e.g., 1 million Muni tokens)
     constructor() {
-        _totalSupply = 1000000 * (10 ** uint256(decimals)); // 1,000,000 MUNI with 18 decimals
-        _balances[msg.sender] = _totalSupply; // Assign all tokens to the deployer
+        _totalSupply = 1000000 * (10 ** uint256(decimals));
+        _balances[msg.sender] = _totalSupply;
         emit Transfer(address(0), msg.sender, _totalSupply);
     }
-    
     function totalSupply() external view override returns (uint256) {
         return _totalSupply;
     }
